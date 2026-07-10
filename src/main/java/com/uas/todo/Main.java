@@ -27,9 +27,9 @@ public class Main {
 
                 while (running) {
                     System.out.println("\nMENU UTAMA:");
-                    System.out.println("1. Tambah Catatan Baru 📝");
-                    System.out.println("2. Tampilkan Semua Catatan 📋");
-                    System.out.println("3. Keluar Aplikasi 🚪");
+                    System.out.println("1. Tambah Catatan Baru ");
+                    System.out.println("2. Tampilkan Semua Catatan ");
+                    System.out.println("3. Keluar Aplikasi ");
                     System.out.print("Pilih opsi (1-3): ");
                     
                     String pilihan = scanner.nextLine();
@@ -66,7 +66,7 @@ public class Main {
                             break;
 
                         default:
-                            System.out.println("⚠️ Pilihan salah! Silakan masukkan angka 1, 2, atau 3.");
+                            System.out.println(" Pilihan salah! Silakan masukkan angka 1, 2, atau 3.");
                     }
                 }
                 scanner.close();

@@ -4,15 +4,16 @@ public class Note {
     private int id;
     private String title;
     private String content;
+    private String status; // "ACTIVE", "ARCHIVED", atau "TRASH"
 
-    // Constructor untuk membuat Catatan baru
-    public Note(int id, String title, String content) {
+    public Note(int id, String title, String content, String status) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.status = status;
     }
 
-    // Getter dan Setter (Akses data)
+    // Getter dan Setter
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
@@ -22,7 +23,9 @@ public class Note {
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
 
-    // Mengubah objek catatan menjadi teks rapi saat dicetak di terminal
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+
     @Override
     public String toString() {
         return id + ". Judul: " + title + "\n   Isi  : " + content + "\n-----------------------";
