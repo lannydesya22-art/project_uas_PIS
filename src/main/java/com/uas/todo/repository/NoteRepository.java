@@ -12,7 +12,7 @@ public class NoteRepository {
         this.connection = connection;
     }
 
-    // Membuat tabel dengan kolom status tambahan bawaan "ACTIVE"
+    
     public void createTable() {
         String sql = "CREATE TABLE IF NOT EXISTS notes (" +
                      "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -38,7 +38,7 @@ public class NoteRepository {
         }
     }
 
-    // Mengambil catatan berdasarkan status tertentu (Notes, Archive, atau Trash)
+    
     public List<Note> getNotesByStatus(String status) {
         List<Note> notes = new ArrayList<>();
         String sql = "SELECT * FROM notes WHERE status = ?";
@@ -60,7 +60,7 @@ public class NoteRepository {
         return notes;
     }
 
-    // Mengubah status catatan (Pindah ke Trash atau Archive)
+    
     public void updateStatus(int id, String newStatus) {
         String sql = "UPDATE notes SET status = ? WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -72,7 +72,7 @@ public class NoteRepository {
         }
     }
 
-    // Hapus permanen jika dihapus dari folder Trash
+    
     public void deletePermanently(int id) {
         String sql = "DELETE FROM notes WHERE id = ? AND status = 'TRASH'";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {

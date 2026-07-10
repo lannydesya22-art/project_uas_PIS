@@ -25,10 +25,10 @@ public class Main {
 
                 while (running) {
                     System.out.println("\n--- NAVIGASI UTAMA ---");
-                    System.out.println("1. Tampilkan Catatan Utama (Notes) 💡");
-                    System.out.println("2. Tampilkan Arsip (Archive) 📥");
-                    System.out.println("3. Tampilkan Tempat Sampah (Trash) 🗑️");
-                    System.out.println("4. Keluar Aplikasi 🚪");
+                    System.out.println("1. Tampilkan Catatan Utama (Notes) ");
+                    System.out.println("2. Tampilkan Arsip (Archive) ");
+                    System.out.println("3. Tampilkan Tempat Sampah (Trash) ");
+                    System.out.println("4. Keluar Aplikasi ");
                     System.out.print("Pilih halaman (1-4): ");
                     
                     String halaman = scanner.nextLine();
@@ -48,7 +48,7 @@ public class Main {
                             System.out.println("\nTerima kasih! Keluar dari aplikasi.");
                             break;
                         default:
-                            System.out.println("⚠️ Pilihan salah! Masukkan angka 1 sampai 4.");
+                            System.out.println(" Pilihan salah! Masukkan angka 1 sampai 4.");
                     }
                 }
                 scanner.close();
@@ -58,12 +58,12 @@ public class Main {
         }
     }
 
-    // HALAMAN 1: NOTES UTAMA
+    
     private static void handleNotesPage(NoteRepository repository, Scanner scanner) {
         boolean inPage = true;
         while (inPage) {
             System.out.println("\n=======================================");
-            System.out.println("          HALAMAN UTAMA: NOTES 💡       ");
+            System.out.println("          HALAMAN UTAMA: NOTES        ");
             System.out.println("=======================================");
             List<Note> notes = repository.getNotesByStatus("ACTIVE");
             printNotes(notes);
@@ -83,35 +83,35 @@ public class Main {
                     System.out.print("Masukkan Isi Catatan  : ");
                     String content = scanner.nextLine();
                     repository.addNote(title, content);
-                    System.out.println("✓ Sukses! Catatan aktif berhasil ditambahkan.");
+                    System.out.println(" Sukses! Catatan aktif berhasil ditambahkan.");
                     break;
                 case "b":
                     System.out.print("\nMasukkan ID Catatan yang ingin diarsipkan: ");
                     int idSub = Integer.parseInt(scanner.nextLine());
                     repository.updateStatus(idSub, "ARCHIVED");
-                    System.out.println("✓ Catatan berhasil dipindah ke Arsip.");
+                    System.out.println("Catatan berhasil dipindah ke Arsip.");
                     break;
                 case "c":
                     System.out.print("\nMasukkan ID Catatan yang ingin dibuang: ");
                     int idTrash = Integer.parseInt(scanner.nextLine());
                     repository.updateStatus(idTrash, "TRASH");
-                    System.out.println("✓ Catatan dipindah ke Tempat Sampah.");
+                    System.out.println("Catatan dipindah ke Tempat Sampah.");
                     break;
                 case "d":
                     inPage = false;
                     break;
                 default:
-                    System.out.println("⚠️ Aksi tidak valid!");
+                    System.out.println("Aksi tidak valid!");
             }
         }
     }
 
-    // HALAMAN 2: ARCHIVE
+    
     private static void handleArchivePage(NoteRepository repository, Scanner scanner) {
         boolean inPage = true;
         while (inPage) {
             System.out.println("\n=======================================");
-            System.out.println("         HALAMAN: ARSIP (ARCHIVE) 📥    ");
+            System.out.println("         HALAMAN: ARSIP (ARCHIVE)     ");
             System.out.println("=======================================");
             List<Note> notes = repository.getNotesByStatus("ARCHIVED");
             printNotes(notes);
@@ -126,21 +126,21 @@ public class Main {
                 System.out.print("\nMasukkan ID Catatan untuk di-unarchive: ");
                 int id = Integer.parseInt(scanner.nextLine());
                 repository.updateStatus(id, "ACTIVE");
-                System.out.println("✓ Catatan dikembalikan ke halaman utama.");
+                System.out.println("Catatan dikembalikan ke halaman utama.");
             } else if (aksi.equals("b")) {
                 inPage = false;
             } else {
-                System.out.println("⚠️ Aksi tidak valid!");
+                System.out.println("Aksi tidak valid!");
             }
         }
     }
 
-    // HALAMAN 3: TRASH
+    
     private static void handleTrashPage(NoteRepository repository, Scanner scanner) {
         boolean inPage = true;
         while (inPage) {
             System.out.println("\n=======================================");
-            System.out.println("      HALAMAN: TEMPAT SAMPAH (TRASH) 🗑️ ");
+            System.out.println("      HALAMAN: TEMPAT SAMPAH (TRASH)  ");
             System.out.println("=======================================");
             List<Note> notes = repository.getNotesByStatus("TRASH");
             printNotes(notes);
@@ -157,19 +157,19 @@ public class Main {
                     System.out.print("\nMasukkan ID Catatan untuk dipulihkan: ");
                     int idRestore = Integer.parseInt(scanner.nextLine());
                     repository.updateStatus(idRestore, "ACTIVE");
-                    System.out.println("✓ Catatan berhasil dipulihkan.");
+                    System.out.println("Catatan berhasil dipulihkan.");
                     break;
                 case "b":
                     System.out.print("\nMasukkan ID Catatan untuk DIHAPUS PERMANEN: ");
                     int idPerm = Integer.parseInt(scanner.nextLine());
                     repository.deletePermanently(idPerm);
-                    System.out.println("🔥 Catatan telah dihapus permanen dari database.");
+                    System.out.println("Catatan telah dihapus permanen dari database.");
                     break;
                 case "c":
                     inPage = false;
                     break;
                 default:
-                    System.out.println("⚠️ Aksi tidak valid!");
+                    System.out.println("Aksi tidak valid!");
             }
         }
     }

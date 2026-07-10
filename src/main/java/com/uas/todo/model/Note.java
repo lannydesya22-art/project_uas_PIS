@@ -4,7 +4,7 @@ public class Note {
     private int id;
     private String title;
     private String content;
-    private String status; // "ACTIVE", "ARCHIVED", atau "TRASH"
+    private String status; 
 
     public Note(int id, String title, String content, String status) {
         this.id = id;

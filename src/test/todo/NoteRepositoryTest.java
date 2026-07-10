@@ -17,21 +17,17 @@ public class NoteRepositoryTest {
 
     @BeforeEach
     void setUp() throws SQLException {
-        // Kita buat "database palsu" (MOCK)
         mockConnection = mock(Connection.class);
         repository = new NoteRepository(mockConnection);
     }
 
     @Test
     void testAddNoteCallsPrepareStatement() throws SQLException {
-        // Kita pura-pura membuat PreparedStatement
         PreparedStatement mockStmt = mock(PreparedStatement.class);
         when(mockConnection.prepareStatement(anyString())).thenReturn(mockStmt);
 
-        // Menjalankan fungsi tambah catatan
         repository.addNote("Test Judul", "Test Isi");
 
-        // Membuktikan bahwa fungsi database benar-benar dipanggil (INI POIN PENTING UAS)
         verify(mockConnection, times(1)).prepareStatement(anyString());
     }
 }
