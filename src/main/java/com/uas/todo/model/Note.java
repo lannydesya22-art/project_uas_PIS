@@ -4,7 +4,7 @@ public class Note {
     private int id;
     private String title;
     private String content;
-    private String status; 
+    private String status;
 
     public Note(int id, String title, String content, String status) {
         this.id = id;
@@ -13,7 +13,6 @@ public class Note {
         this.status = status;
     }
 
-    // Getter dan Setter
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
@@ -28,6 +27,6 @@ public class Note {
 
     @Override
     public String toString() {
-        return id + ". Judul: " + title + "\n   Isi  : " + content + "\n-----------------------";
+        return id + ". " + title + "\n   " + content + "\n------------------------";
     }
 }

@@ -6,4 +6,3 @@
 - Lihat catatan
 - Fitur Archive & Trash
 
-## ENJOYYYY
