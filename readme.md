@@ -1,8 +1,3 @@
-## Cara Jalanin
-1. Ketik: `mvn compile exec:java "-Dexec.mainClass=com.uas.todo.Main"`
+# Google Keep Clone (UAS PIS)
 
-## Fitur
-- Input catatan
-- Lihat catatan
-- Fitur Archive & Trash
-
+Silahkan lihat panduan penggunaan dan laporan pengujian aplikasi pada file testing.md
